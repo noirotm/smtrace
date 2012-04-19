@@ -13,8 +13,10 @@ Usage
 
 Add
 
-    #define REPLACE_STD_MALLOC
-    #include "smtrace.h"
+```C
+#define REPLACE_STD_MALLOC
+#include "smtrace.h"
+```
 
 at the top of your C files.
 
@@ -25,11 +27,13 @@ SMtrace must be initialized as soon as possible in your program by calling `smt_
 not needed anymore by calling `smt_cleanup()` to ensure
 that the sqlite3 database is properly written to disk.
 
-    int main() {
-        smt_init("sqlitefile.db");
-        // ...
-        smt_cleanup();
-    }
+```C
+int main() {
+    smt_init("sqlitefile.db");
+    // ...
+    smt_cleanup();
+}
+```
 
 SQLite3 may allow other programs to access the database while your program is still running, so some kind of
 "real-time" monitoring is possible.
